@@ -140,8 +140,8 @@ const ShoeModel = ({ modelPath, productId }: { modelPath: string; productId?: st
 };
 
 const ProductViewer: React.FC<ProductViewerProps> = ({ modelPath, productId }) => {
-  // Adjust camera position based on product ID
-  const cameraPosition = productId === '2' ? new Vector3(0, 0, 3) : new Vector3(0, 0, 3);
+  // Adjust camera position to be closer to the model
+  const cameraPosition = new Vector3(0, 0, 1.5);
   
   return (
     <motion.div 
@@ -174,8 +174,8 @@ const ProductViewer: React.FC<ProductViewerProps> = ({ modelPath, productId }) =
           enablePan={false}
           minPolarAngle={Math.PI / 4}
           maxPolarAngle={Math.PI - Math.PI / 4}
-          minDistance={1}
-          maxDistance={10}
+          minDistance={0.5}
+          maxDistance={Infinity}
         />
       </Canvas>
       
